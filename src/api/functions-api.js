@@ -8,9 +8,9 @@ export const getNewMovies = async () => {
   }
 };
 
-export const getGenres = async () => {
+export const getGenres = async (url) => {
   try {
-    const response = await fetch(import.meta.env.VITE_API_URL_GENRES);
+    const response = await fetch(url);
     const data = await response.json();
     return data.genres;
   } catch (error) {

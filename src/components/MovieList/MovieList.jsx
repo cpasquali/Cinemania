@@ -12,7 +12,9 @@ export const MovieList = ({ type, page, currentGenre }) => {
           ? `${
               import.meta.env.VITE_API_URL_MOVIES
             }&page=${page}&with_genres=${currentGenre}`
-          : `${import.meta.env.VITE_API_URL_SERIES}&page=${page}`
+          : `${
+              import.meta.env.VITE_API_URL_SERIES
+            }&page=${page}&with_genres=${currentGenre}`
       );
       const data = await response.json();
       setMovieList(data.results);
