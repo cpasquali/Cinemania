@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import { Footer } from "./components/Footer/Footer";
-import { MovieList } from "./components/movieList/MovieList";
+import { ContentContainer } from "./pages/ContentContainer/ContentContainer";
 import { NavBar } from "./components/NavBar/NavBar";
 import { Switch, Route } from "wouter";
 import { LandingPage } from "./pages/LandingPage/LandingPage";
@@ -17,7 +17,10 @@ function App() {
       <main>
         <Switch>
           <Route path="/" component={LandingPage} />
-          <Route path="/list" component={() => <MovieList type={type} />} />
+          <Route
+            path="/list"
+            component={() => <ContentContainer type={type} />}
+          />
           <Route path={"/login"} component={LoginForm} />
           <Route path={"/register"} component={RegisterForm} />
           <Route path={"/favorites"} component={FavoritesMoviesContainer} />

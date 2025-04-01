@@ -28,7 +28,7 @@ export const NavBar = ({ setType }) => {
   const [user, setUser] = useState(currentUserInLocalStorage());
 
   return (
-    <nav>
+    <nav className="fixed w-full z-30">
       <Disclosure as="nav" className="nav">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">

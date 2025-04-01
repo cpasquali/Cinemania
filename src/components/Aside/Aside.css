@@ -1,0 +1,7 @@
+.active-genre {
+  width: 200px;
+  padding: 5px;
+  background-color: #000000a5;
+  color: white;
+  transition: all 0.4s;
+}
