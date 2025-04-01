@@ -18,15 +18,15 @@ export class UsersList {
 
     if (!findUser) {
       alert("Usuario no encontrado");
-      return null; // Evita errores y permite manejar el caso donde el usuario no existe
+      return null;
     }
 
     if (findUser.contraseña !== password) {
       alert("Credenciales incorrectas");
-      return null; // Indica que la autenticación falló
+      return null;
     }
 
-    return findUser; // Devuelve el usuario si las credenciales son correctas
+    return findUser;
   }
 
   viewAllUsers() {
