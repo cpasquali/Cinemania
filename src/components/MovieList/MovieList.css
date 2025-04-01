@@ -1,0 +1,9 @@
+.movies-container {
+  justify-self: center;
+}
+
+@media (min-width: 320px) and (max-width: 768px) {
+  .movies-container {
+    width: 100%;
+  }
+}

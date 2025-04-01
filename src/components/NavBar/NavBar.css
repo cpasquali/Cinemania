@@ -1,0 +1,21 @@
+.underline-after {
+  cursor: pointer;
+}
+
+.nav {
+  background-color: white;
+}
+
+.underline-after::after {
+  content: "";
+  display: block;
+  position: relative;
+  height: 3px;
+  background-color: rgb(0, 0, 0);
+  width: 0;
+  transition: all 0.3s;
+}
+
+.underline-after:hover::after {
+  width: 100%;
+}

@@ -1,0 +1,9 @@
+@media (min-width: 320px) and (max-width: 768px) {
+  .radios-container {
+    gap: 0;
+  }
+
+  .radio {
+    border-radius: 0;
+  }
+}

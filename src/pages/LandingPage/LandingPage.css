@@ -1,0 +1,20 @@
+.banner-landing {
+  background-image: url("../../../public/tendencias-203623-1024x576.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.banner-landing::after {
+  content: "";
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.719);
+}
+
+.card-genre {
+  padding: 50px;
+  border-radius: 50%;
+}
