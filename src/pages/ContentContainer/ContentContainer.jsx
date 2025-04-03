@@ -9,7 +9,7 @@ export const ContentContainer = ({ type }) => {
   console.log(currentGenre);
   return (
     <div>
-      <div className="flex justify-center">
+      <div className="flex flex-col justify-center items-center">
         <Aside
           currentGenre={currentGenre}
           setCurrentGenre={setCurrentGenre}

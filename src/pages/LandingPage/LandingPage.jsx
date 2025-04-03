@@ -45,9 +45,9 @@ export const LandingPage = () => {
           <h2 className="text-3xl font-bold text-black mb-8">
             Nuevos estrenos
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 card-container">
+          <div className="flex flex-wrap justify-center gap-8 card-container">
             {movies.map((movie) => (
-              <div key={movie.id} className="relative group card">
+              <div key={movie.id} className="relative group card min-md:w-86">
                 <img
                   src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
                   alt="Movie Poster"
@@ -60,7 +60,7 @@ export const LandingPage = () => {
                 </div>
               </div>
             ))}
-            <div className="relative group rounded-lg bg-black flex items-center justify-center">
+            <div className="relative group rounded-lg bg-black flex items-center justify-center w-70 self-center min-md:w-86 min-md:h-60 ">
               <Link
                 to="/list"
                 className="rounded-md px-3 py-2 font-medium text-xl"
