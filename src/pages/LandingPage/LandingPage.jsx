@@ -71,22 +71,6 @@ export const LandingPage = () => {
           </div>
         </div>
       </section>
-      <section className="bg-black text-white py-16">
-        <div className="container mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-4">
-            Encontra el genero que mas te guste!!
-          </h2>
-          <section className="flex items-center flex-wrap justify-center gap-y-3 gap-x-6">
-            {genres.map((genre) => {
-              return (
-                <section className="flex items-center justify-center w-26 h-26 rounded-full bg-white text-black cursor-pointer shadow-md hover:bg-neutral-900 transition-all hover:text-white">
-                  <p className="font-medium text-center">{genre.name}</p>
-                </section>
-              );
-            })}
-          </section>
-        </div>
-      </section>
     </div>
   );
 };
