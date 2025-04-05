@@ -8,9 +8,15 @@ export class UsersList {
   }
 
   registerUser(user) {
+    const repeat = this.usersList.find((u) => u.username === user.username);
+    if (repeat) {
+      alert("Usuario ya registrado");
+      return false;
+    }
     this.usersList.push(user);
     localStorage.setItem("usersList", JSON.stringify(this.usersList));
     alert("usuario registrado");
+    return true;
   }
 
   loginUser(username, password) {
