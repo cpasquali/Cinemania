@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { MovieList } from "../../components/MovieList/MovieList";
-import { Aside } from "../../components/Aside/Aside";
+import { CardsContainer } from "../../components/CardsContainer/CardsContainer";
+import { GenreScrollBar } from "../../components/GenreScrollBar/GenreScrollBar";
 import { Pagination } from "../../components/Paginacion/Paginacion";
 
 export const ContentContainer = ({ type }) => {
@@ -10,12 +10,12 @@ export const ContentContainer = ({ type }) => {
   return (
     <div>
       <div className="flex flex-col justify-center items-center">
-        <Aside
+        <GenreScrollBar
           currentGenre={currentGenre}
           setCurrentGenre={setCurrentGenre}
           type={type}
         />
-        <MovieList type={type} page={page} currentGenre={currentGenre} />
+        <CardsContainer type={type} page={page} currentGenre={currentGenre} />
       </div>
       <Pagination page={page} setPage={setPage} />
     </div>

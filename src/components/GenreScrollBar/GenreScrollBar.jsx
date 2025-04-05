@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { getGenres } from "../../api/functions-api";
-import "./Aside.css";
+import "./GenreScrollBar.css";
 
-export const Aside = ({ currentGenre, setCurrentGenre, type }) => {
+export const GenreScrollBar = ({ currentGenre, setCurrentGenre, type }) => {
   const [genres, setGenres] = useState([]);
   const genreContainerRef = useRef(null);
 
@@ -29,7 +29,10 @@ export const Aside = ({ currentGenre, setCurrentGenre, type }) => {
 
   return (
     <div className="flex gap-10 justify-center items-center">
-      <button className="mt-21" onClick={scrollLeft}>
+      <button
+        className="flex justify-center items-center mt-21 border-2 border-black rounded-full p-1 px-2 py-2 hover:bg-black hover:text-white transition-all"
+        onClick={scrollLeft}
+      >
         <ion-icon className="text-xl" name="arrow-back-outline"></ion-icon>
       </button>
       <ul
@@ -50,7 +53,10 @@ export const Aside = ({ currentGenre, setCurrentGenre, type }) => {
           );
         })}
       </ul>
-      <button className="mt-21" onClick={scrollRight}>
+      <button
+        className="flex justify-center items-center mt-21 border-2 border-black rounded-full p-1 px-2 py-2 hover:bg-black hover:text-white transition-all"
+        onClick={scrollRight}
+      >
         <ion-icon className="text-xl" name="arrow-forward-outline"></ion-icon>
       </button>
     </div>

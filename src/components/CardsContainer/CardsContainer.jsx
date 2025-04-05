@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { MovieCard } from "../MovieCard/MovieCard";
-import "./MovieList.css";
+import "./CardsContainer.css";
 
-export const MovieList = ({ type, page, currentGenre }) => {
+export const CardsContainer = ({ type, page, currentGenre }) => {
   const [movieList, setMovieList] = useState([]);
 
   const getData = async () => {
