@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { MovieCard } from "../../components/movieCard/MovieCard";
+import { MovieCard } from "../../components/MovieCard/MovieCard";
 import "./FavoritesMovies.css";
 
 export const FavoritesMoviesContainer = () => {
