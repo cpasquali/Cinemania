@@ -3,7 +3,6 @@ import { Form } from "../../components/Form/Form";
 import { useRef } from "react";
 import { User } from "../../classes/User";
 import { UsersList } from "../../classes/UsersList";
-import { ArrowLeftEndOnRectangleIcon } from "@heroicons/react/16/solid";
 
 export const RegisterForm = () => {
   const nombreRef = useRef(null);
