@@ -3,6 +3,10 @@ import { Form } from "../../components/Form/Form";
 import { useRef } from "react";
 import { User } from "../../classes/User";
 import { UsersList } from "../../classes/UsersList";
+import {
+  failureMessage,
+  succesMessage,
+} from "../../utils/toastMessagesFunctions";
 
 export const RegisterForm = () => {
   const nombreRef = useRef(null);
@@ -31,7 +35,7 @@ export const RegisterForm = () => {
     const emptyField = references.some((ref) => ref.current.value === "");
 
     if (emptyField) {
-      alert("Todos los campos deben estar completos");
+      failureMessage("Todos los campos deben estar completos");
       references.forEach((ref) => {
         ref.current.style.border = "1px solid red";
       });
@@ -46,7 +50,7 @@ export const RegisterForm = () => {
     }
 
     if (contraseñaRef.current.value.length <= 5) {
-      alert("La contraseña debe tener como minimo 6 caracteres");
+      failureMessage("La contraseña debe tener como minimo 6 caracteres");
       contraseñaRef.current.style.border = "1px solid red";
 
       setTimeout(() => {
@@ -56,7 +60,7 @@ export const RegisterForm = () => {
     }
 
     if (contraseñaRef.current.value !== confirmarContraseñaRef.current.value) {
-      alert("Las contraseñas ingresadas no son iguales");
+      failureMessage("Las contraseñas ingresadas no son iguales");
       contraseñaRef.current.style.border = "1px solid red";
       confirmarContraseñaRef.current.style.border = "1px solid red";
 
@@ -79,8 +83,9 @@ export const RegisterForm = () => {
       return;
     }
     document.location = "/login";
-
-    console.log(user);
+    setTimeout(() => {
+      succesMessage("Usuario creado con exito");
+    }, 100);
   };
 
   return (

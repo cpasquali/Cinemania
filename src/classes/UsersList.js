@@ -1,3 +1,5 @@
+import { failureMessage, succesMessage } from "../utils/toastMessagesFunctions";
+
 export class UsersList {
   usersListInLocalStorage() {
     const data = localStorage.getItem("usersList");
@@ -10,12 +12,12 @@ export class UsersList {
   registerUser(user) {
     const repeat = this.usersList.find((u) => u.username === user.username);
     if (repeat) {
-      alert("Usuario ya registrado");
+      failureMessage("Usuario ya registrado");
       return false;
     }
     this.usersList.push(user);
     localStorage.setItem("usersList", JSON.stringify(this.usersList));
-    alert("usuario registrado");
+    succesMessage("Usuario registrado con exito");
     return true;
   }
 
@@ -23,12 +25,12 @@ export class UsersList {
     const findUser = this.usersList.find((u) => u.username === username);
 
     if (!findUser) {
-      alert("Usuario no encontrado");
+      failureMessage("Usuario no encontrado");
       return null;
     }
 
     if (findUser.contraseña !== password) {
-      alert("Credenciales incorrectas");
+      failureMessage("Credenciales incorrectas");
       return null;
     }
 

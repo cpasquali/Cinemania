@@ -21,7 +21,7 @@ export const NavBar = ({ setType }) => {
   const logOut = () => {
     localStorage.removeItem("currentUser");
     setUser(null);
-    alert("Sesión cerrada con éxito!!");
+    localStorage.setItem("logoutMessage", "Sesion cerrada con exito");
     document.location = "/login";
   };
 

@@ -1,11 +1,11 @@
 import "./LandingPage.css";
-import React, { useState } from "react";
-import { getNewMovies, getGenres } from "../../api/functions-api";
+import React, { useEffect, useState } from "react";
+import { getNewMovies } from "../../api/functions-api";
 import { Link } from "wouter";
+import { succesMessage } from "../../utils/toastMessagesFunctions";
 
 export const LandingPage = () => {
   const [movies, setMovies] = useState([]);
-  const [genres, setGenres] = useState([]);
 
   const fetchMovies = async () => {
     const newMovies = await getNewMovies();
@@ -13,14 +13,15 @@ export const LandingPage = () => {
     setMovies(limitedMovies);
   };
 
-  const fetchGenre = async () => {
-    const newGenres = await getGenres();
-    setGenres(newGenres);
-  };
-
-  useState(() => {
+  useEffect(() => {
     fetchMovies();
-    fetchGenre();
+    const message = localStorage.getItem("loginMessage");
+    if (message) {
+      setTimeout(() => {
+        succesMessage(message);
+      }, 50);
+      localStorage.removeItem("loginMessage");
+    }
   }, []);
 
   return (

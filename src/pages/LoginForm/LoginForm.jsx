@@ -1,7 +1,11 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { Form } from "../../components/Form/Form";
 import "./LoginForm.css";
 import { UsersList } from "../../classes/UsersList";
+import {
+  failureMessage,
+  succesMessage,
+} from "../../utils/toastMessagesFunctions";
 
 export const LoginForm = () => {
   const usernameRef = useRef(null);
@@ -16,7 +20,7 @@ export const LoginForm = () => {
     const emptyField = references.some((ref) => ref.current.value === "");
 
     if (emptyField) {
-      alert("Todos los campos deben estar completos");
+      failureMessage("Todos los campos deben estar completos");
       references.forEach((ref) => {
         ref.current.style.border = "1px solid red";
       });
@@ -49,9 +53,20 @@ export const LoginForm = () => {
 
     localStorage.setItem("currentUser", JSON.stringify(user));
     if (user) {
+      localStorage.setItem("loginMessage", `Bienvenido ${user.username}`);
       document.location = "/";
     }
   };
+
+  useEffect(() => {
+    const message = localStorage.getItem("logoutMessage");
+    if (message) {
+      setTimeout(() => {
+        succesMessage(message);
+      }, 50);
+      localStorage.removeItem("logoutMessage");
+    }
+  }, []);
 
   return (
     <section className="flex items-center justify-center">

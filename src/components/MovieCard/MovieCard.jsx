@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-
+import { succesMessage } from "../../utils/toastMessagesFunctions";
 export const MovieCard = ({ movieObject }) => {
   const title = movieObject.title ? movieObject.title : movieObject.name;
 
@@ -27,6 +27,7 @@ export const MovieCard = ({ movieObject }) => {
       `favorites-${currentUser.username}`,
       JSON.stringify(updatedFavorites)
     );
+    succesMessage("Pelicula agregada con exito!!");
     window.dispatchEvent(new Event("favoritesUpdated"));
   };
 
@@ -38,6 +39,7 @@ export const MovieCard = ({ movieObject }) => {
       `favorites-${currentUser.username}`,
       JSON.stringify(newArray)
     );
+    succesMessage("Pelicula eliminada con exito!!");
     window.dispatchEvent(new Event("favoritesUpdated"));
   };
 
