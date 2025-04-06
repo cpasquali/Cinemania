@@ -45,7 +45,7 @@ export const FavoritesMoviesContainer = () => {
 
   return (
     <section>
-      <div className="flex gap-4 justify-center my-4 radios-container">
+      <div className="flex gap-4 justify-center my-4 radios-container mt-20">
         <label className="flex items-center gap-2 cursor-pointer px-4 py-2 bg-gray-200 text-black rounded-lg border-2 border-transparent transition-all hover:border-black radio">
           <input
             type="radio"
