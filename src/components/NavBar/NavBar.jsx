@@ -10,9 +10,11 @@ import {
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import "./NavBar.css";
 import { Link } from "wouter";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
-export const NavBar = ({ setType }) => {
+export const NavBar = ({ type, setType, searchMovie, setSearchMovie }) => {
+  const textInputSearch = useRef(null);
+
   const currentUserInLocalStorage = () => {
     const user = localStorage.getItem("currentUser");
     return user ? JSON.parse(user) : {};
@@ -26,6 +28,21 @@ export const NavBar = ({ setType }) => {
   };
 
   const [user, setUser] = useState(currentUserInLocalStorage());
+
+  const inputSearchPlaceHolder =
+    type === "movie" ? "Ingresa una pelicula..." : "Ingresa una serie...";
+
+  const handleType = (type) => {
+    setType(type);
+    setSearchMovie("");
+  };
+
+  const handleSearchMovie = (name) => {
+    setSearchMovie(name);
+    setTimeout(() => {
+      textInputSearch.current.value = "";
+    }, 8000);
+  };
 
   return (
     <nav className="fixed w-full z-30">
@@ -49,7 +66,7 @@ export const NavBar = ({ setType }) => {
                   </Link>
                   <Link
                     className="block rounded-md px-3 py-2 text-base font-medium underline-after"
-                    onClick={() => setType("movie")}
+                    onClick={() => handleType("movie")}
                     to="/list"
                   >
                     Peliculas
@@ -57,12 +74,22 @@ export const NavBar = ({ setType }) => {
                   <Link
                     to="/list"
                     className="block rounded-md px-3 py-2 text-base font-medium underline-after"
-                    onClick={() => setType("serie")}
+                    onClick={() => handleType("serie")}
                   >
                     Series
                   </Link>
                 </ul>
               </div>
+              <form className="hidden md:flex gap-2 ml-8">
+                <input
+                  placeholder={inputSearchPlaceHolder}
+                  type="search"
+                  className="border border-gray-300 bg-white text-black placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-black focus:border-black w-80 pl-3 py-2 rounded-md transition-colors duration-300"
+                  onChange={(e) => handleSearchMovie(e.target.value)}
+                  value={textInputSearch.current.value}
+                  ref={textInputSearch}
+                />
+              </form>
             </div>
             <div className="hidden md:block">
               <div className="ml-4 flex items-center md:ml-6">

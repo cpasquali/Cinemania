@@ -2,19 +2,30 @@ import { useEffect, useState } from "react";
 import { MovieCard } from "../MovieCard/MovieCard";
 import "./CardsContainer.css";
 
-export const CardsContainer = ({ type, page, currentGenre }) => {
+export const CardsContainer = ({ type, page, currentGenre, searchMovie }) => {
   const [movieList, setMovieList] = useState([]);
 
   const getData = async () => {
+    const apiUrl =
+      type === "movie"
+        ? `${
+            import.meta.env.VITE_API_URL_MOVIES
+          }&page=${page}&with_genres=${currentGenre}`
+        : `${
+            import.meta.env.VITE_API_URL_SERIES
+          }&page=${page}&with_genres=${currentGenre}`;
+
     try {
       const response = await fetch(
-        type === "movie"
+        searchMovie && type === "movie"
           ? `${
-              import.meta.env.VITE_API_URL_MOVIES
-            }&page=${page}&with_genres=${currentGenre}`
-          : `${
-              import.meta.env.VITE_API_URL_SERIES
-            }&page=${page}&with_genres=${currentGenre}`
+              import.meta.env.VITE_API_URL_MOVIES_BY_NAME
+            }&query=${searchMovie}`
+          : searchMovie && type === "serie"
+          ? `${
+              import.meta.env.VITE_API_URL_SERIES_BY_NAME
+            }&query=${searchMovie}`
+          : apiUrl
       );
       const data = await response.json();
       setMovieList(data.results);
@@ -26,7 +37,7 @@ export const CardsContainer = ({ type, page, currentGenre }) => {
 
   useEffect(() => {
     getData();
-  }, [type, page, currentGenre]);
+  }, [type, page, currentGenre, searchMovie]);
 
   return (
     <>

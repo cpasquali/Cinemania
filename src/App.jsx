@@ -12,15 +12,23 @@ import { ToastContainer } from "react-toastify";
 
 function App() {
   const [type, setType] = useState("movie");
+  const [searchMovie, setSearchMovie] = useState("");
   return (
     <>
-      <NavBar setType={setType} />
+      <NavBar
+        type={type}
+        setType={setType}
+        searchMovie={searchMovie}
+        setSearchMovie={setSearchMovie}
+      />
       <main>
         <Switch>
           <Route path="/" component={LandingPage} />
           <Route
             path="/list"
-            component={() => <ContentContainer type={type} />}
+            component={() => (
+              <ContentContainer type={type} searchMovie={searchMovie} />
+            )}
           />
           <Route path={"/login"} component={LoginForm} />
           <Route path={"/register"} component={RegisterForm} />
