@@ -80,16 +80,13 @@ export const NavBar = ({ type, setType, searchMovie, setSearchMovie }) => {
                   </Link>
                 </ul>
               </div>
-              <form className="hidden md:flex gap-2 ml-8">
-                <input
-                  placeholder={inputSearchPlaceHolder}
-                  type="search"
-                  className="border border-gray-300 bg-white text-black placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-black focus:border-black w-80 pl-3 py-2 rounded-md transition-colors duration-300"
-                  onChange={(e) => handleSearchMovie(e.target.value)}
-                  value={textInputSearch.current.value}
-                  ref={textInputSearch}
-                />
-              </form>
+              <input
+                placeholder={inputSearchPlaceHolder}
+                type="search"
+                className="flex border border-gray-300 bg-white text-black placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-black focus:border-black w-80 pl-3 py-2 rounded-md transition-colors duration-300 max-sm:w-46 max-sm:ml-2"
+                onChange={(e) => handleSearchMovie(e.target.value)}
+                ref={textInputSearch}
+              />
             </div>
             <div className="hidden md:block">
               <div className="ml-4 flex items-center md:ml-6">
