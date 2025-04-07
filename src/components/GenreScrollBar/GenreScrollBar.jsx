@@ -28,33 +28,33 @@ export const GenreScrollBar = ({ currentGenre, setCurrentGenre, type }) => {
   };
 
   return (
-    <div className="flex gap-10 justify-center items-center">
+    <div className="flex justify-center items-center min-md:gap-10">
       <button
-        className="flex justify-center items-center mt-21 border-2 border-black rounded-full p-1 px-2 py-2 hover:bg-black hover:text-white transition-all"
+        className="hidden min-md:flex justify-center items-center mt-21 border-2 border-black rounded-full p-1 px-2 py-2 hover:bg-black hover:text-white transition-all"
         onClick={scrollLeft}
       >
         <ion-icon className="text-xl" name="arrow-back-outline"></ion-icon>
       </button>
       <ul
-        className="flex gap-6 w-200 genre-menu mt-18 genre-container overflow-x-hidden transition-transform duration-500 max-md:w-48"
+        className="flex overflow-x-scroll min-md:gap-6 w-200 genre-menu mt-18 genre-container min-md:overflow-x-hidden transition-transform duration-500 max-md:w-66"
         ref={genreContainerRef}
       >
         {genres.map((genre) => {
           return (
             <li
               key={genre.id}
-              className={`flex items-center border-2 border-black font-medium mt-3 cursor-pointer whitespace-nowrap px-4 py-1 rounded-md max-md:w-20 max-md:text-xs max-md:whitespace-normal ${
+              className={`flex items-center border-2 border-black font-medium mt-3 cursor-pointer whitespace-nowrap px-4 py-1 rounded-md max-md:w-20 max-md:text-xs max-md:whitespace-normal max-sm:p-4 ${
                 currentGenre === genre.id ? "active-genre" : ""
               }`}
               onClick={() => setCurrentGenre(genre.id)}
             >
-              <p>{genre.name}</p>
+              <p className="max-sm:truncate">{genre.name}</p>
             </li>
           );
         })}
       </ul>
       <button
-        className="flex justify-center items-center mt-21 border-2 border-black rounded-full p-1 px-2 py-2 hover:bg-black hover:text-white transition-all"
+        className="hidden min-md:flex justify-center items-center mt-21 border-2 border-black rounded-full p-1 px-2 py-2 hover:bg-black hover:text-white transition-all"
         onClick={scrollRight}
       >
         <ion-icon className="text-xl" name="arrow-forward-outline"></ion-icon>
