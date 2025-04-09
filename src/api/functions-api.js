@@ -8,6 +8,34 @@ export const getNewMovies = async () => {
   }
 };
 
+export const getMovieById = async (id) => {
+  try {
+    const url = import.meta.env.VITE_API_URL_ONE_MOVIE.replace(
+      "movie/movie_id",
+      `movie/${id}`
+    );
+    const response = await fetch(url);
+    const data = response.json();
+    return data;
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
+export const getSerieById = async (id) => {
+  try {
+    const url = import.meta.env.VITE_API_URL_ONE_SERIE.replace(
+      "tv/serie_id",
+      `tv/${id}`
+    );
+    const response = await fetch(url);
+    const data = response.json();
+    return data;
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
 export const getGenres = async (url) => {
   try {
     const response = await fetch(url);

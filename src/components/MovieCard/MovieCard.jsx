@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { succesMessage } from "../../utils/toastMessagesFunctions";
+import { Link } from "wouter";
 export const MovieCard = ({ movieObject }) => {
   const title = movieObject.title ? movieObject.title : movieObject.name;
 
@@ -51,27 +52,35 @@ export const MovieCard = ({ movieObject }) => {
     <article className="flex flex-col items-center w-64 bg-white text-gray-900 border border-gray-300 rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105">
       {movieObject.poster_path ? (
         <section className="w-64">
-          <img
-            className="w-full h-96 object-cover"
-            src={`https://image.tmdb.org/t/p/w500/${movieObject.poster_path}`}
-            alt={`poster de ${title}`}
-          />
-          <h2 className="w-full text-lg font-semibold text-center py-4 truncate px-4">
-            {title}
-          </h2>
+          <Link to={`/movie/${movieObject.id}`}>
+            <img
+              className="w-full h-96 object-cover"
+              src={`https://image.tmdb.org/t/p/w500/${movieObject.poster_path}`}
+              alt={`poster de ${title}`}
+            />
+            <h2 className="w-full text-lg font-semibold text-center py-4 truncate px-4">
+              {title}
+            </h2>
+          </Link>
           {!favoritesMovies.some((m) =>
             m.title ? m.title === title : m.name === title
           ) ? (
             <button
               className={classButton}
-              onClick={() => addFavoriteMovie(movieObject)}
+              onClick={(e) => {
+                e.stopPropagation();
+                addFavoriteMovie(movieObject);
+              }}
             >
               Agregar a favoritos
             </button>
           ) : (
             <button
               className={classButton}
-              onClick={() => removeFavoriteMovie(movieObject)}
+              onClick={(e) => {
+                e.stopPropagation();
+                removeFavoriteMovie(movieObject);
+              }}
             >
               Eliminar de favoritos
             </button>
@@ -79,20 +88,29 @@ export const MovieCard = ({ movieObject }) => {
         </section>
       ) : (
         <section className="flex flex-col justify-between h-100 w-64 items-center">
-          <p className="font-medium m-6 text-center">{title}</p>
+          <Link to={`/movie/${movieObject.id}`}>
+            <p className="font-medium m-6 text-center">{title}</p>
+          </Link>
+
           {!favoritesMovies.some((m) =>
             m.title ? m.title === title : m.name === title
           ) ? (
             <button
               className={classButton}
-              onClick={() => addFavoriteMovie(movieObject)}
+              onClick={(e) => {
+                e.stopPropagation();
+                addFavoriteMovie(movieObject);
+              }}
             >
               Agregar a favoritos
             </button>
           ) : (
             <button
               className={classButton}
-              onClick={() => removeFavoriteMovie(movieObject)}
+              onClick={(e) => {
+                e.stopPropagation();
+                removeFavoriteMovie(movieObject);
+              }}
             >
               Eliminar de favoritos
             </button>

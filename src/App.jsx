@@ -9,6 +9,7 @@ import { LoginForm } from "./pages/LoginForm/LoginForm";
 import { RegisterForm } from "./pages/RegisterForm/RegisterForm";
 import { FavoritesMoviesContainer } from "./pages/FavoritesMoviesContainer/FavoritesMoviesContainer";
 import { ToastContainer } from "react-toastify";
+import { ContentDetails } from "./pages/ContentDetails/ContentDetails";
 
 function App() {
   const [type, setType] = useState("movie");
@@ -33,6 +34,10 @@ function App() {
           <Route path={"/login"} component={LoginForm} />
           <Route path={"/register"} component={RegisterForm} />
           <Route path={"/favorites"} component={FavoritesMoviesContainer} />
+          <Route
+            path={"/movie/:id"}
+            component={() => <ContentDetails type={type} />}
+          />
         </Switch>
         <ToastContainer />
       </main>

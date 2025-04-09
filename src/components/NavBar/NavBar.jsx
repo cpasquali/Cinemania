@@ -41,7 +41,7 @@ export const NavBar = ({ type, setType, searchMovie, setSearchMovie }) => {
     setSearchMovie(name);
     setTimeout(() => {
       textInputSearch.current.value = "";
-    }, 8000);
+    }, 10000);
   };
 
   return (
