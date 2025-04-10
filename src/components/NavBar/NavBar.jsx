@@ -57,7 +57,7 @@ export const NavBar = ({ type, setType, searchMovie, setSearchMovie }) => {
                 <p className="font-medium text-2xl title-mobile-nav">CNM</p>
               </div>
               <div className="hidden md:block">
-                <ul className="ml-10 flex items-baseline space-x-4">
+                <ul className="ml-10 flex items-baseline space-x-4 desktop-options">
                   <Link
                     to="/"
                     className="block rounded-md px-3 py-2 text-base font-medium underline-after"
@@ -94,7 +94,7 @@ export const NavBar = ({ type, setType, searchMovie, setSearchMovie }) => {
                   <Menu as="div" className="relative ml-3">
                     {user && user.username ? (
                       <div>
-                        <MenuButton className="relative flex max-w-xs items-center rounded-md border border-black focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden">
+                        <MenuButton className="relative flex max-w-xs items-center rounded-md border border-black focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden desktop-button-menu">
                           <span className="absolute -inset-1.5" />
                           <span className="sr-only">Open user menu</span>
                           <h2 className="text-black p-2">{user.username}</h2>
@@ -142,8 +142,8 @@ export const NavBar = ({ type, setType, searchMovie, setSearchMovie }) => {
               </div>
             </div>
 
-            <div className="-mr-2 flex md:hidden">
-              <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md bg-gray-800 p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden">
+            <div className="-mr-2 flex min-lg:hidden">
+              <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md bg-gray-800 p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden mobile-button-menu">
                 <span className="absolute -inset-0.5" />
                 <span className="sr-only">Open main menu</span>
                 <Bars3Icon
@@ -159,7 +159,7 @@ export const NavBar = ({ type, setType, searchMovie, setSearchMovie }) => {
           </div>
         </div>
 
-        <DisclosurePanel className="md:hidden">
+        <DisclosurePanel className="disclosure-panel">
           <ul className=" space-y-1 px-2 pt-2 pb-3 sm:px-3">
             <Link
               to="/"

@@ -19,3 +19,27 @@
 .underline-after:hover::after {
   width: 100%;
 }
+
+@media (width > 768px) {
+  .disclosure-panel {
+    display: none;
+  }
+
+  .mobile-button-menu {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .mobile-button-menu {
+    display: block;
+  }
+
+  .desktop-button-menu {
+    display: none;
+  }
+
+  .desktop-options {
+    display: none;
+  }
+}
