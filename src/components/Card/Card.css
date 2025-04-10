@@ -1,0 +1,20 @@
+@media (min-width: 320px) and (max-width: 767px) {
+  .card {
+    width: 130px;
+    height: 250px;
+    align-items: center;
+  }
+
+  .card-info {
+    width: 120px;
+  }
+
+  .card-image {
+    height: 190px;
+    width: 100%;
+  }
+
+  .card-title {
+    font-size: 14px;
+  }
+}

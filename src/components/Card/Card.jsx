@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { succesMessage } from "../../utils/toastMessagesFunctions";
 import { Link } from "wouter";
+import "./Card.css";
 export const Card = ({ movieObject }) => {
   const title = movieObject.title ? movieObject.title : movieObject.name;
 
@@ -53,16 +54,16 @@ export const Card = ({ movieObject }) => {
     : movieObject.first_air_date.split("-")[0];
 
   return (
-    <article className="flex flex-col items-center w-64 bg-white text-gray-900 border border-gray-300 rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105 relative">
+    <article className="card flex flex-col items-center w-64 bg-white text-gray-900 border border-gray-300 rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105 relative">
       {movieObject.poster_path ? (
-        <section className="w-64">
+        <section className="card-info w-64">
           <Link to={`/movie/${movieObject.id}`}>
             <img
-              className="w-full h-96 object-cover"
+              className="w-full h-96 object-cover card-image"
               src={`https://image.tmdb.org/t/p/w500/${movieObject.poster_path}`}
               alt={`poster de ${title}`}
             />
-            <h2 className="w-full text-lg font-semibold text-center py-4 truncate px-4">
+            <h2 className="w-full text-lg font-semibold text-center py-4 truncate px-4 card-title">
               {title}
             </h2>
           </Link>
