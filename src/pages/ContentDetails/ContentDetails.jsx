@@ -10,6 +10,10 @@ export const ContentDetails = ({ type }) => {
   console.log(type);
 
   const title = data.title ? data.title : data.name;
+  const overview = data.overview
+    ? data.overview
+    : "Este contenido no tiene informacion registrada";
+  const classOverview = data.overview ? "" : "text-center";
 
   const fetchData = async () => {
     let data = "";
@@ -42,11 +46,13 @@ export const ContentDetails = ({ type }) => {
         />
         <div className="flex flex-col items-center gap-6 mt-2 z-10">
           <h2 className="font-medium text-xl text-white">{title}</h2>
-          <p className="w-120 max-md:w-70  text-white">{data.overview}</p>
+          <p className={`w-120 max-md:w-70  text-white ${classOverview}`}>
+            {overview}
+          </p>
         </div>
         <div className="absolute bottom-0 left-0 w-full h-42 bg-gradient-to-t from-black to-transparent pointer-events-none"></div>
       </section>
-      <section className="flex flex-wrap w-full items-center justify-center gap-10">
+      <section className="flex flex-wrap w-full items-center justify-center gap-10 py-4">
         {data.production_companies?.map((company) => {
           return (
             <article key={company.id}>

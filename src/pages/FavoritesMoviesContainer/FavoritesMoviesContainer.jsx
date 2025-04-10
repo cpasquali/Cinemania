@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { MovieCard } from "../../components/MovieCard/MovieCard";
+import { Card } from "../../components/Card/Card";
 import "./FavoritesMovies.css";
 
 export const FavoritesMoviesContainer = () => {
@@ -93,7 +93,7 @@ export const FavoritesMoviesContainer = () => {
       {showContent.length > 0 ? (
         <div className="movies-container flex flex-wrap gap-8 items-center justify-center mt-6 w-350 mb-6 favorites-movies-container">
           {showContent.map((movie, index) => (
-            <MovieCard movieObject={movie} key={movie.id || index} />
+            <Card movieObject={movie} key={movie.id || index} />
           ))}
         </div>
       ) : (

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { succesMessage } from "../../utils/toastMessagesFunctions";
 import { Link } from "wouter";
-export const MovieCard = ({ movieObject }) => {
+export const Card = ({ movieObject }) => {
   const title = movieObject.title ? movieObject.title : movieObject.name;
 
   const currentUserInLocalStorage = () => {
