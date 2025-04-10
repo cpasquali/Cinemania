@@ -36,14 +36,14 @@ export const GenreScrollBar = ({ currentGenre, setCurrentGenre, type }) => {
         <ion-icon className="text-xl" name="arrow-back-outline"></ion-icon>
       </button>
       <ul
-        className="flex overflow-x-scroll min-md:gap-6 w-200 genre-menu mt-18 genre-container min-md:overflow-x-hidden transition-transform duration-500 max-md:w-66"
+        className="flex overflow-x-scroll min-md:gap-6 w-200 genre-menu mt-18 genre-container min-md:overflow-x-hidden transition-transform duration-500 max-md:w-80 max-md:border-1"
         ref={genreContainerRef}
       >
         {genres.map((genre) => {
           return (
             <li
               key={genre.id}
-              className={`flex items-center border-2 border-black font-medium mt-3 cursor-pointer whitespace-nowrap px-4 py-1 rounded-md max-md:w-20 max-md:text-xs max-md:whitespace-normal max-sm:p-4 ${
+              className={`flex items-center border-2 max-md:border-0 border-black font-medium mt-3 max-md:m-0 max-md:rounded-none cursor-pointer whitespace-nowrap px-4 py-1 rounded-md max-md:w-20 max-md:text-xs max-md:whitespace-normal max-sm:p-4 ${
                 currentGenre === genre.id ? "active-genre" : ""
               }`}
               onClick={() => setCurrentGenre(genre.id)}
