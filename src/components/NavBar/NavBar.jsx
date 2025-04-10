@@ -80,6 +80,8 @@ export const NavBar = ({ type, setType, searchMovie, setSearchMovie }) => {
                   </Link>
                 </ul>
               </div>
+            </div>
+            <div className="flex">
               <input
                 placeholder={inputSearchPlaceHolder}
                 type="search"
@@ -87,58 +89,59 @@ export const NavBar = ({ type, setType, searchMovie, setSearchMovie }) => {
                 onChange={(e) => handleSearchMovie(e.target.value)}
                 ref={textInputSearch}
               />
-            </div>
-            <div className="hidden md:block">
-              <div className="ml-4 flex items-center md:ml-6">
-                <Menu as="div" className="relative ml-3">
-                  {user && user.username ? (
-                    <div>
-                      <MenuButton className="relative flex max-w-xs items-center rounded-md border border-black focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden">
-                        <span className="absolute -inset-1.5" />
-                        <span className="sr-only">Open user menu</span>
-                        <h2 className="text-black p-2">{user.username}</h2>
-                      </MenuButton>
-                      <MenuItems
-                        transition
-                        className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 ring-1 shadow-lg ring-black/5 transition focus:outline-hidden data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in"
-                      >
-                        <MenuItem>
-                          <Link
-                            to={"/favorites"}
-                            className="block px-4 py-2 text-sm text-gray-700 data-focus:bg-gray-100 data-focus:outline-hidden cursor-pointer"
-                          >
-                            Favoritos
-                          </Link>
-                        </MenuItem>
-                        <MenuItem>
-                          <a
-                            className="block px-4 py-2 text-sm text-gray-700 data-focus:bg-gray-100 data-focus:outline-hidden cursor-pointer"
-                            onClick={logOut}
-                          >
-                            Cerrar Sesion
-                          </a>
-                        </MenuItem>
-                      </MenuItems>
-                    </div>
-                  ) : (
-                    <div className="flex gap-4">
-                      <Link
-                        to="/login"
-                        className="block rounded-md px-3 py-2 text-base font-medium border-2 border-black hover:bg-black hover:text-white transition-all duration-150 cursor-pointer"
-                      >
-                        Iniciar Sesion
-                      </Link>
-                      <Link
-                        to="/register"
-                        className="block rounded-md px-3 py-2 text-base font-medium bg-black text-white cursor-pointer"
-                      >
-                        Registrarse
-                      </Link>
-                    </div>
-                  )}
-                </Menu>
+              <div className="hidden md:block">
+                <div className="ml-4 flex items-center md:ml-6">
+                  <Menu as="div" className="relative ml-3">
+                    {user && user.username ? (
+                      <div>
+                        <MenuButton className="relative flex max-w-xs items-center rounded-md border border-black focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden">
+                          <span className="absolute -inset-1.5" />
+                          <span className="sr-only">Open user menu</span>
+                          <h2 className="text-black p-2">{user.username}</h2>
+                        </MenuButton>
+                        <MenuItems
+                          transition
+                          className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 ring-1 shadow-lg ring-black/5 transition focus:outline-hidden data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in"
+                        >
+                          <MenuItem>
+                            <Link
+                              to={"/favorites"}
+                              className="block px-4 py-2 text-sm text-gray-700 data-focus:bg-gray-100 data-focus:outline-hidden cursor-pointer"
+                            >
+                              Favoritos
+                            </Link>
+                          </MenuItem>
+                          <MenuItem>
+                            <a
+                              className="block px-4 py-2 text-sm text-gray-700 data-focus:bg-gray-100 data-focus:outline-hidden cursor-pointer"
+                              onClick={logOut}
+                            >
+                              Cerrar Sesion
+                            </a>
+                          </MenuItem>
+                        </MenuItems>
+                      </div>
+                    ) : (
+                      <div className="flex gap-4">
+                        <Link
+                          to="/login"
+                          className="block rounded-md px-3 py-2 text-base font-medium border-2 border-black hover:bg-black hover:text-white transition-all duration-150 cursor-pointer"
+                        >
+                          Iniciar Sesion
+                        </Link>
+                        <Link
+                          to="/register"
+                          className="block rounded-md px-3 py-2 text-base font-medium bg-black text-white cursor-pointer"
+                        >
+                          Registrarse
+                        </Link>
+                      </div>
+                    )}
+                  </Menu>
+                </div>
               </div>
             </div>
+
             <div className="-mr-2 flex md:hidden">
               <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md bg-gray-800 p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden">
                 <span className="absolute -inset-0.5" />
