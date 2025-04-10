@@ -48,8 +48,12 @@ export const Card = ({ movieObject }) => {
     ? "text-center w-full p-2 bg-black text-white cursor-pointer"
     : "hidden";
 
+  const date = movieObject.release_date
+    ? movieObject.release_date.split("-")[0]
+    : movieObject.first_air_date.split("-")[0];
+
   return (
-    <article className="flex flex-col items-center w-64 bg-white text-gray-900 border border-gray-300 rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105">
+    <article className="flex flex-col items-center w-64 bg-white text-gray-900 border border-gray-300 rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105 relative">
       {movieObject.poster_path ? (
         <section className="w-64">
           <Link to={`/movie/${movieObject.id}`}>
@@ -117,6 +121,9 @@ export const Card = ({ movieObject }) => {
           )}
         </section>
       )}
+      <p className="absolute top-1 left-50 bg-black w-20 text-white px-2">
+        {date}
+      </p>
     </article>
   );
 };

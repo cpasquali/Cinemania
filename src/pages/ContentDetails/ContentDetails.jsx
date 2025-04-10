@@ -7,7 +7,18 @@ export const ContentDetails = ({ type }) => {
   let { id } = useParams();
   const [data, setData] = useState({});
 
-  console.log(type);
+  const currentUserInLocalStorage = () => {
+    const user = localStorage.getItem("currentUser");
+    return user ? JSON.parse(user) : null;
+  };
+
+  const [currentUser] = useState(currentUserInLocalStorage());
+  const [favoritesMovies, setFavoritesMovies] = useState([]);
+
+  const updateFavorites = () => {
+    const data = localStorage.getItem(`favorites-${currentUser?.username}`);
+    setFavoritesMovies(data ? JSON.parse(data) : []);
+  };
 
   const title = data.title ? data.title : data.name;
   const overview = data.overview
@@ -40,7 +51,7 @@ export const ContentDetails = ({ type }) => {
         }}
       >
         <img
-          className="h-102 z-10"
+          className="h-102 z-10 rounded-md"
           src={`https://image.tmdb.org/t/p/w500/${data.poster_path}`}
           alt={`poster de ${data.title}`}
         />
