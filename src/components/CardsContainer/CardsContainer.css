@@ -4,7 +4,9 @@
 
 @media (min-width: 320px) and (max-width: 768px) {
   .movies-container {
+    margin-top: 10px;
     width: 100%;
+    gap: 9px;
   }
 }
 
