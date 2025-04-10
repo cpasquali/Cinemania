@@ -125,13 +125,13 @@ export const NavBar = ({ type, setType, searchMovie, setSearchMovie }) => {
                       <div className="flex gap-4">
                         <Link
                           to="/login"
-                          className="block rounded-md px-3 py-2 text-base font-medium border-2 border-black hover:bg-black hover:text-white transition-all duration-150 cursor-pointer"
+                          className="button-auth  block rounded-md px-3 py-2 text-base font-medium border-2 border-black hover:bg-black hover:text-white transition-all duration-150 cursor-pointer"
                         >
                           Iniciar Sesion
                         </Link>
                         <Link
                           to="/register"
-                          className="block rounded-md px-3 py-2 text-base font-medium bg-black text-white cursor-pointer"
+                          className="button-auth block rounded-md px-3 py-2 text-base font-medium bg-black text-white cursor-pointer"
                         >
                           Registrarse
                         </Link>

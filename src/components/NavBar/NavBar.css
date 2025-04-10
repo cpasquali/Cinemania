@@ -43,3 +43,10 @@
     display: none;
   }
 }
+
+@media (width <= 1024px) {
+  .button-auth {
+    height: 40px;
+    font-size: 10px;
+  }
+}
