@@ -48,7 +48,10 @@ export const LandingPage = () => {
           </h2>
           <div className="flex flex-wrap justify-center gap-8 card-container">
             {movies.map((movie) => (
-              <div key={movie.id} className="relative group card min-md:w-86">
+              <div
+                key={movie.id}
+                className="relative group card-landing min-md:w-86 self-center"
+              >
                 <img
                   src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
                   alt="Movie Poster"
