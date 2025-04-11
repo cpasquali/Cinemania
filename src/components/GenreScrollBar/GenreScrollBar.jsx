@@ -2,7 +2,12 @@ import { useEffect, useRef, useState } from "react";
 import { getGenres } from "../../api/functions-api";
 import "./GenreScrollBar.css";
 
-export const GenreScrollBar = ({ currentGenre, setCurrentGenre, type }) => {
+export const GenreScrollBar = ({
+  currentGenre,
+  setCurrentGenre,
+  type,
+  setSearchMovie,
+}) => {
   const [genres, setGenres] = useState([]);
   const genreContainerRef = useRef(null);
 
@@ -27,6 +32,11 @@ export const GenreScrollBar = ({ currentGenre, setCurrentGenre, type }) => {
     genreContainerRef.current.scrollBy({ left: -300, behavior: "smooth" });
   };
 
+  const handleGenre = (genre) => {
+    setCurrentGenre(genre);
+    setSearchMovie("");
+  };
+
   return (
     <div className="flex justify-center items-center min-md:gap-10">
       <button
@@ -46,7 +56,7 @@ export const GenreScrollBar = ({ currentGenre, setCurrentGenre, type }) => {
               className={`flex items-center border-2 max-lg:border-0 border-black font-medium mt-3 max-lg:m-0 max-lg:rounded-none cursor-pointer whitespace-nowrap px-4 py-1 rounded-lg max-lg:w-20 max-lg:text-xs max-lg:whitespace-normal max-sm:p-4 ${
                 currentGenre === genre.id ? "active-genre" : ""
               }`}
-              onClick={() => setCurrentGenre(genre.id)}
+              onClick={() => handleGenre(genre.id)}
             >
               <p className="max-sm:truncate">{genre.name}</p>
             </li>

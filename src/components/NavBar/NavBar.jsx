@@ -39,9 +39,6 @@ export const NavBar = ({ type, setType, searchMovie, setSearchMovie }) => {
 
   const handleSearchMovie = (name) => {
     setSearchMovie(name);
-    setTimeout(() => {
-      textInputSearch.current.value = "";
-    }, 10000);
   };
 
   return (
@@ -88,6 +85,7 @@ export const NavBar = ({ type, setType, searchMovie, setSearchMovie }) => {
                 className="flex border border-gray-300 bg-white text-black placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-black focus:border-black w-80 pl-3 py-2 rounded-md transition-colors duration-300 max-sm:w-46 max-sm:ml-2"
                 onChange={(e) => handleSearchMovie(e.target.value)}
                 ref={textInputSearch}
+                value={searchMovie}
               />
               <div className="hidden md:block">
                 <div className="ml-4 flex items-center md:ml-6">

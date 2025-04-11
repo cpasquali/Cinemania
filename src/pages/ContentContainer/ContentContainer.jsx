@@ -3,7 +3,7 @@ import { CardsContainer } from "../../components/CardsContainer/CardsContainer";
 import { GenreScrollBar } from "../../components/GenreScrollBar/GenreScrollBar";
 import { Pagination } from "../../components/Paginacion/Paginacion";
 
-export const ContentContainer = ({ type, searchMovie }) => {
+export const ContentContainer = ({ type, searchMovie, setSearchMovie }) => {
   const [page, setPage] = useState(1);
   const [currentGenre, setCurrentGenre] = useState(16);
 
@@ -14,6 +14,7 @@ export const ContentContainer = ({ type, searchMovie }) => {
           currentGenre={currentGenre}
           setCurrentGenre={setCurrentGenre}
           type={type}
+          setSearchMovie={setSearchMovie}
         />
         <CardsContainer
           type={type}

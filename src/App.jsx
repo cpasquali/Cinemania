@@ -28,7 +28,11 @@ function App() {
           <Route
             path="/list"
             component={() => (
-              <ContentContainer type={type} searchMovie={searchMovie} />
+              <ContentContainer
+                type={type}
+                searchMovie={searchMovie}
+                setSearchMovie={setSearchMovie}
+              />
             )}
           />
           <Route path={"/login"} component={LoginForm} />
