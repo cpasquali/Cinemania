@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { succesMessage } from "../../utils/toastMessagesFunctions";
 import { Link } from "wouter";
-import "./Card.css";
 export const Card = ({ movieObject }) => {
   const title = movieObject.title ? movieObject.title : movieObject.name;
 
@@ -54,16 +53,16 @@ export const Card = ({ movieObject }) => {
     : movieObject.first_air_date.split("-")[0];
 
   return (
-    <article className="card flex flex-col items-center w-64 bg-white text-gray-900 border border-gray-300 rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105 relative">
+    <article className="flex flex-col items-center w-54 bg-white text-gray-900 border border-gray-300 rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105 relative">
       {movieObject.poster_path ? (
-        <section className="card-info w-64">
+        <section className="card-info w-54">
           <Link to={`/movie/${movieObject.id}`}>
             <img
-              className="w-full h-96 object-cover card-image"
+              className="w-full h-76 object-cover card-image"
               src={`https://image.tmdb.org/t/p/w500/${movieObject.poster_path}`}
               alt={`poster de ${title}`}
             />
-            <h2 className="w-full text-lg font-semibold text-center py-4 truncate px-4 card-title">
+            <h2 className="w-full text-lg font-semibold text-center py-3 truncate px-4 card-title">
               {title}
             </h2>
           </Link>
@@ -122,7 +121,7 @@ export const Card = ({ movieObject }) => {
           )}
         </section>
       )}
-      <p className="absolute top-1 left-50 bg-black w-20 text-white px-2">
+      <p className="absolute top-1 left-40 bg-black w-20 text-white px-2">
         {date}
       </p>
     </article>
