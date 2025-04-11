@@ -121,7 +121,7 @@ export const RegisterForm = () => {
           <input
             type={isShowPassword ? "text" : "password"}
             placeholder="Ingresar contraseña"
-            className="input border border-black h-11 px-6 radius password w-75"
+            className="input password border  border-black h-11 px-6 radius  w-75"
             ref={contraseñaRef}
           />
           <button

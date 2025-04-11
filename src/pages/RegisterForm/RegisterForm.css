@@ -16,10 +16,14 @@
   }
 
   .input {
+    width: 265px;
+  }
+
+  .input.password {
     width: 220px;
   }
 
   .btn-auth {
-    width: 220px;
+    width: 265px;
   }
 }
