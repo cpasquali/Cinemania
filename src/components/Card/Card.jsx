@@ -49,8 +49,8 @@ export const Card = ({ movieObject }) => {
     : "hidden";
 
   const date = movieObject.release_date
-    ? movieObject.release_date.split("-")[0]
-    : movieObject.first_air_date.split("-")[0];
+    ? movieObject.release_date?.split("-")[0]
+    : movieObject.first_air_date?.split("-")[0];
 
   return (
     <article className="flex flex-col items-center w-54 bg-white text-gray-900 border border-gray-300 rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105 relative">
