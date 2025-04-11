@@ -1,0 +1,25 @@
+.radius {
+  border-radius: 10px;
+}
+
+.password {
+  border-radius: 10px 0 0 10px;
+}
+
+.btn-password {
+  border-radius: 0 10px 10px 0;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .form {
+    width: 260px;
+  }
+
+  .input {
+    width: 220px;
+  }
+
+  .btn-auth {
+    width: 220px;
+  }
+}

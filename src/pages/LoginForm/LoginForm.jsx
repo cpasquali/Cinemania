@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Form } from "../../components/Form/Form";
 import "./LoginForm.css";
 import { UsersList } from "../../classes/UsersList";
@@ -8,6 +8,7 @@ import {
 } from "../../utils/toastMessagesFunctions";
 
 export const LoginForm = () => {
+  const [isShowPassword, setIsShowPassword] = useState(false);
   const usernameRef = useRef(null);
   const contraseñaRef = useRef(null);
   const references = [usernameRef, contraseñaRef];
@@ -74,17 +75,30 @@ export const LoginForm = () => {
         <input
           type="text"
           placeholder="Ingresar nombre"
-          className="border border-black p-2 px-6 rounded-md w-75"
+          className="input border border-black p-2 px-6 rounded-md w-75"
           ref={usernameRef}
         />
-        <input
-          type="text"
-          placeholder="Ingresar contraseña"
-          className="border border-black p-2 px-6 rounded-md w-75"
-          ref={contraseñaRef}
-        />
+        <div className="flex items-center">
+          <input
+            type={isShowPassword ? "text" : "password"}
+            placeholder="Ingresar contraseña"
+            className="input border border-black h-11 px-6 radius password w-75"
+            ref={contraseñaRef}
+          />
+          <button
+            className="border border-black h-11 px-3 radius btn-password text-lg"
+            onClick={(e) => {
+              setIsShowPassword(!isShowPassword);
+              e.preventDefault();
+            }}
+          >
+            <ion-icon
+              name={!isShowPassword ? "eye-off-outline" : "eye-outline"}
+            ></ion-icon>
+          </button>
+        </div>
         <button
-          className="block rounded-md px-3 py-2 text-base font-medium bg-black text-white cursor-pointer w-75 text-center"
+          className="btn-auth block rounded-md px-3 py-2 text-base font-medium bg-black text-white cursor-pointer w-75 text-center"
           onClick={login}
         >
           Ingresar

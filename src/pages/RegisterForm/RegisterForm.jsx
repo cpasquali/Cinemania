@@ -1,6 +1,6 @@
 import "./RegisterForm.css";
 import { Form } from "../../components/Form/Form";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { User } from "../../classes/User";
 import { UsersList } from "../../classes/UsersList";
 import {
@@ -28,6 +28,8 @@ export const RegisterForm = () => {
   if (nombreRef.current) {
     console.log("valor del ref:", nombreRef.current.value);
   }
+
+  const [isShowPassword, setIsShowPassword] = useState(false);
 
   const addUser = (e) => {
     e.preventDefault();
@@ -89,46 +91,60 @@ export const RegisterForm = () => {
   };
 
   return (
-    <section className="flex items-center justify-center">
+    <section className="flex justify-center">
       <Form title={"Registrarse"}>
         <input
           type="text"
           placeholder="Ingresar nombre"
-          className="border border-black p-2 px-6 rounded-md w-75"
+          className="input border border-black h-11 px-6 radius w-75"
           ref={nombreRef}
         />
         <input
           type="text"
           placeholder="Ingresar apellido"
-          className="border border-black p-2 px-6 rounded-md w-75"
+          className="input border border-black h-11 px-6 radius w-75"
           ref={apellidoRef}
         />
         <input
           type="text"
           placeholder="Ingresar nombre de usuario"
-          className="border border-black p-2 px-6 rounded-md w-75"
+          className="input border border-black h-11 px-6 radius w-75"
           ref={usernameRef}
         />
         <input
           type="text"
           placeholder="Ingresar email"
-          className="border border-black p-2 px-6 rounded-md w-75"
+          className="input border border-black h-11 px-6 radius w-75"
           ref={emailRef}
         />
+        <div className="flex items-center">
+          <input
+            type={isShowPassword ? "text" : "password"}
+            placeholder="Ingresar contraseña"
+            className="input border border-black h-11 px-6 radius password w-75"
+            ref={contraseñaRef}
+          />
+          <button
+            className="border border-black h-11 px-3 radius btn-password text-lg"
+            onClick={(e) => {
+              setIsShowPassword(!isShowPassword);
+              e.preventDefault();
+            }}
+          >
+            <ion-icon
+              name={!isShowPassword ? "eye-off-outline" : "eye-outline"}
+            ></ion-icon>
+          </button>
+        </div>
+
         <input
-          type="text"
-          placeholder="Ingresar contraseña"
-          className="border border-black p-2 px-6 rounded-md w-75"
-          ref={contraseñaRef}
-        />
-        <input
-          type="text"
+          type={isShowPassword ? "text" : "password"}
           placeholder="Confirmar contraseña"
-          className="border border-black p-2 px-6 rounded-md w-75"
+          className="input border border-black h-11 px-6 radius w-75"
           ref={confirmarContraseñaRef}
         />
         <button
-          className="block rounded-md px-3 py-2 text-base font-medium bg-black text-white cursor-pointer w-75"
+          className="btn-auth block radius px-3 py-2 text-base font-medium bg-black text-white cursor-pointer w-75"
           onClick={addUser}
         >
           Ingresar
