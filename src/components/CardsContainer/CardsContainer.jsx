@@ -40,12 +40,10 @@ export const CardsContainer = ({ type, page, currentGenre, searchMovie }) => {
   }, [type, page, currentGenre, searchMovie]);
 
   return (
-    <>
-      <section className="movies-container flex flex-wrap gap-8 items-center justify-center mt-10 mb-6 ">
-        {movieList.map((movie, index) => {
-          return <Card movieObject={movie} key={movie.id || index} />;
-        })}
-      </section>
-    </>
+    <section className="movies-container flex flex-wrap gap-8 items-center justify-center mt-10 mb-6 ">
+      {movieList.map((movie, index) => {
+        return <Card movieObject={movie} key={movie.id || index} />;
+      })}
+    </section>
   );
 };
