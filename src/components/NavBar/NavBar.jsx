@@ -49,7 +49,7 @@ export const NavBar = ({ type, setType, searchMovie, setSearchMovie }) => {
             <div className="flex items-center">
               <div className="shrink-0">
                 <img
-                  src="../../.././logo.png"
+                  src="../../.././public/logo.png"
                   alt="logo de la pagina"
                   className="image-logo w-25 mt-2 object-contain"
                 />
