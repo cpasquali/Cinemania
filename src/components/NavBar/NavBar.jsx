@@ -48,10 +48,11 @@ export const NavBar = ({ type, setType, searchMovie, setSearchMovie }) => {
           <div className="flex h-16 items-center justify-between">
             <div className="flex items-center">
               <div className="shrink-0">
-                <p className="font-medium text-2xl mb-1 title-computer-nav">
-                  CINEMANIA
-                </p>
-                <p className="font-medium text-2xl title-mobile-nav">CNM</p>
+                <img
+                  src="../../.././public/logo.png"
+                  alt="logo de la pagina"
+                  className="image-logo w-25 mt-2 object-contain"
+                />
               </div>
               <div className="hidden md:block">
                 <ul className="ml-10 flex items-baseline space-x-4 desktop-options">
