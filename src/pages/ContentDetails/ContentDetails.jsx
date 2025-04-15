@@ -7,19 +7,6 @@ export const ContentDetails = ({ type }) => {
   let { id } = useParams();
   const [data, setData] = useState({});
 
-  const currentUserInLocalStorage = () => {
-    const user = localStorage.getItem("currentUser");
-    return user ? JSON.parse(user) : null;
-  };
-
-  const [currentUser] = useState(currentUserInLocalStorage());
-  const [favoritesMovies, setFavoritesMovies] = useState([]);
-
-  const updateFavorites = () => {
-    const data = localStorage.getItem(`favorites-${currentUser?.username}`);
-    setFavoritesMovies(data ? JSON.parse(data) : []);
-  };
-
   const title = data.title ? data.title : data.name;
   const overview = data.overview
     ? data.overview
@@ -41,41 +28,26 @@ export const ContentDetails = ({ type }) => {
   }, []);
 
   return (
-    <>
-      <section
-        className="details-container flex mt-16 items-center bg-red-50 justify-center gap-6 relative max-md:flex-col pb-4 py-4"
-        style={{
-          backgroundImage: `url(https://image.tmdb.org/t/p/w1280/${data.backdrop_path})`,
-          backgroundSize: "cover",
-          backgroundPosition: "top",
-        }}
-      >
-        <img
-          className="h-102 z-10 rounded-md"
-          src={`https://image.tmdb.org/t/p/w500/${data.poster_path}`}
-          alt={`poster de ${data.title}`}
-        />
-        <div className="flex flex-col items-center gap-6 mt-2 z-10">
-          <h2 className="font-medium text-xl text-white">{title}</h2>
-          <p className={`w-120 max-md:w-70  text-white ${classOverview}`}>
-            {overview}
-          </p>
-        </div>
-        <div className="absolute bottom-0 left-0 w-full h-42 bg-gradient-to-t from-black to-transparent pointer-events-none"></div>
-      </section>
-      <section className="flex flex-wrap w-full items-center justify-center gap-10 py-4">
-        {data.production_companies?.map((company) => {
-          return (
-            <article key={company.id}>
-              <img
-                className="h-32 w-32 object-contain"
-                src={`https://image.tmdb.org/t/p/w500/${company.logo_path}`}
-                alt={`logo de compania ${company.name}`}
-              />
-            </article>
-          );
-        })}
-      </section>
-    </>
+    <section
+      className="details-container flex mt-16 items-center bg-red-50 justify-center gap-6 relative max-md:flex-col pb-4 py-4"
+      style={{
+        backgroundImage: `url(https://image.tmdb.org/t/p/w1280/${data.backdrop_path})`,
+        backgroundSize: "cover",
+        backgroundPosition: "top",
+      }}
+    >
+      <img
+        className="h-102 z-10 rounded-md"
+        src={`https://image.tmdb.org/t/p/w500/${data.poster_path}`}
+        alt={`poster de ${data.title}`}
+      />
+      <div className="flex flex-col items-center gap-6 mt-2 z-10">
+        <h2 className="font-medium text-xl text-white">{title}</h2>
+        <p className={`w-120 max-md:w-70  text-white ${classOverview}`}>
+          {overview}
+        </p>
+      </div>
+      <div className="absolute bottom-0 left-0 w-full h-42 bg-gradient-to-t from-black to-transparent pointer-events-none"></div>
+    </section>
   );
 };
