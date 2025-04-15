@@ -55,3 +55,9 @@
     font-size: 10px;
   }
 }
+
+@media (320px <= width <= 768px) {
+  .auth-btn-container {
+    display: none;
+  }
+}

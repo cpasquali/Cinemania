@@ -121,7 +121,7 @@ export const NavBar = ({ type, setType, searchMovie, setSearchMovie }) => {
                         </MenuItems>
                       </div>
                     ) : (
-                      <div className="flex gap-4">
+                      <div className="flex gap-4 auth-btn-container">
                         <Link
                           to="/login"
                           className="button-auth  block rounded-md px-3 py-2 text-base font-medium border-2 border-black hover:bg-black hover:text-white transition-all duration-150 cursor-pointer"

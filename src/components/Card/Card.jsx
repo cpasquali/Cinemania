@@ -52,6 +52,10 @@ export const Card = ({ movieObject }) => {
     ? movieObject.release_date?.split("-")[0]
     : movieObject.first_air_date?.split("-")[0];
 
+  const stars = Math.round(movieObject.vote_average / 2);
+  const cantStars = "★".repeat(stars) + "☆".repeat(5 - stars);
+  console.log(stars);
+
   return (
     <article className="flex flex-col items-center w-54 bg-white text-gray-900 border border-gray-300 rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105 relative">
       {movieObject.poster_path ? (
@@ -124,6 +128,7 @@ export const Card = ({ movieObject }) => {
       <p className="absolute top-1 left-40 bg-black w-20 text-white px-2">
         {date}
       </p>
+      <p className="text-xl">{cantStars}</p>
     </article>
   );
 };
