@@ -4,14 +4,6 @@ Cinemania es una aplicación desarrollada con React que utiliza la API de TMDb p
 
 ## Tecnologías utilizadas
 
-
-
-# Cinemania
-
-Cinemania es una aplicación desarrollada con React que utiliza la API de TMDb para mostrar información sobre películas y series. Los usuarios pueden registrarse, iniciar sesión y guardar sus películas favoritas, las cuales se almacenan en el localStorage.
-
-## Tecnologías utilizadas
-
 * React - Biblioteca para la construcción de interfaces de usuario.
 * Tailwind CSS - Framework de estilos para un diseño moderno y responsivo.
 * API de TMDb - Fuente de información de películas y series.
